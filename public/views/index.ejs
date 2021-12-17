@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <title> Warframe Tool | DevBuild </title>
+        <link rel="stylesheet" href="../assets/style/index.css" type="text/css">
+        <link rel="icon" href="../assets/img/icon.ico"/>
+
+        <!-- Boxicons -->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+                
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+
+        <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class="warframe"><img src="../assets/img/logo.svg" width="30" height="30"></i>
+                    <div class="logo-name">Warframe Tool</div>
+                </div>
+                <i class='bx bx-menu' id="btn"></i>
+            </div>
+            <ul class="nav_list">
+                <li>
+                    <i class='bx bx-search search'></i>
+                    <input type="text" placeholder="Rechercher...">
+                    <span class="tooltip">Rechercher</span>
+                </li>
+
+                <li>
+                    <a href="#" class="active-menu">
+                        <i class='bx bx-home-alt'></i>
+                        <span class="links_name">Landing</span>
+                    </a>
+                    <span class="tooltip">Landing</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="links_name">Marché</span>
+                    </a>
+                    <span class="tooltip">Marché</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-pie-chart-alt-2'></i>
+                        <span class="links_name">Courbes</span>
+                    </a>
+                    <span class="tooltip">Courbes</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">En jeu</span>
+                    </a>
+                    <span class="tooltip">En jeu</span>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class='bx bx-cog'></i>
+                        <span class="links_name">Paramètres</span>
+                    </a>
+                    <span class="tooltip">Paramètres</span>
+                </li>
+            </ul>
+
+            <div class="profile_content">
+                <div class="profile">
+                  <div class="profile_details">
+                    <img src="../assets/img/Logo Discord.png" alt="">
+                    <div class="name_job">
+                      <div class="name">Hypnos</div>
+                      <div class="job">Administrateur</div>
+                    </div>
+                  </div>
+                  <i class='bx bx-log-out' id="log_out" ></i>
+                </div>
+              </div>
+        </div>
+
+
+        <section class="landing" id="particles-js">
+            <div class="main-logo">
+                <img src="../assets/img/logo.short.png" alt="">
+                <div class="title">
+                    <h2 class="main-logo-text">Warframe Tool</h2>
+                    <div class="subtitle">
+                        <a href=""><span><i class='bx bxl-github links'></i></span></a>
+                        <span class="separator">&nbsp;|&nbsp;</span>
+                        <span><i class='bx bxl-discord links'></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input id="search-bar" class="search-bar" type="text" placeholder="Rechercher...">
+                    <i class="bx bx-x" id="clear-search"></i>
+                </div>
+
+                <div class="suggestion" id="suggestion">
+                    <ul id="list">
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing home"></section>
+
+        <script>
+            window.onload = function() {
+                particlesJS.load('particles-js', 'particlesjs-config.json');
+            };
+        </script>
+
+        <script src="../js/index.js"></script>
+        <script src="../js/particles.js"></script>
+        <script src="../js/searchbar.js"></script>
+    </body>
+
+</html>

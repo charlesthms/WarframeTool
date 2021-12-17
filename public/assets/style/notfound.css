@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+
+body {
+    background: linear-gradient(320deg, rgb(0, 0, 0) 0%, rgb(32, 32, 32)100%);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+.content {
+    margin: 0 auto;
+    width: 70%;
+
+    font-family:"Nunito Sans";
+    font-size: 1em;
+
+    color: white;
+}
+
+h1 {
+    font-size: 7.5em;
+    margin: 15px 0px;
+    font-weight: 500;   
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+
+    color: white;
+    text-align: center;
+    text-decoration: none;
+
+    background-color: rgb(204, 102, 204);
+    transition: all .1s ease-in;
+
+    margin: 20px 0;
+    padding: 10px 50px;
+    border-radius: 25px;
+}
+
+.btn:hover {
+    background-color: violet;
+}
+
+.text {
+    padding: 5% 10%;
+}

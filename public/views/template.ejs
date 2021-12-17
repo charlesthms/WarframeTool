@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/css/template.css">
+        <link rel="icon" href="/img/icon.ico"/>
+        <!-- Boxicons -->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
+
+        <title><%= data.en.item_name %></title>
+    </head>
+    <body>
+        
+        <section class="main" id="particles-js">
+
+            <div class="search">
+                <div class="search-box">
+                    <i class='bx bx-search'></i>
+                    <input id="search-bar" class="search-bar" type="text" placeholder="Rechercher...">
+                    <i class="bx bx-x" id="clear-search"></i>
+                </div>
+
+                <div class="suggestion" id="suggestion">
+                    <ul id="list">
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="illu" id="div">
+
+                </div>
+
+                <div class="info">
+                    <div class="details">
+                        <h4><%= data.en.item_name %></h4>
+                        <p><%= data.fr.description %></p>
+                        <div class="components" id="components">
+
+                            <% for (let i = 0; i < components.length; i++) { %>
+
+                                <% if(components[i][0] == "/" + data.url_name) { %> 
+                                    <div class="inset">
+                                        <a href="<%= components[i][0] %>"><img src=<%= components[i][1] %> class="compo active"></a>
+                                        <div class="quantity">
+                                            <p>x<%= components[i][2] %></p>
+                                        </div>
+                                    </div>
+                                <% } else { %> 
+                                    <div class="inset">
+                                        <a href="<%= components[i][0] %>"><img src=<%= components[i][1] %> class="compo"></a>
+                                        <div class="quantity">
+                                            <p>x<%= components[i][2] %></p>
+                                        </div>
+                                    </div>
+                                <% } %> 
+                                
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <div class="static">
+                        <div class="link">
+                            <h4>Ducats</h4>
+                            <div class="title">
+                                <img src="../img/ducat.png">
+                                <span><%= data.ducats %></span>
+                            </div>
+                        </div>
+
+                        <div class="link">
+                            <h4>Taxe d'échange</h4>
+                            <div class="title">
+                                <img src="../img/credits.png">
+                                <span><%= data.trading_tax %></span>
+                            </div>
+                        </div>
+
+                        <div class="link">
+                            <h4>Wiki</h4>
+                            <div class="title" id="title">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="prices">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Prix Moyen</th>
+                            <th>Prix Maximum</th>
+                            <th>Prix Minimum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="tabPrice">
+                                    <div class="price">
+                                        <%= items[0].med_price %>
+                                    </div>
+                                    <img src="../img/PlatinumLarge.png" width="20">
+                                </div>
+                            </td>
+   
+                            <td>
+                                <div class="tabPrice">
+                                    <div class="price">
+                                        <%= items[0].max_price %>
+                                    </div>
+                                    <img src="../img/PlatinumLarge.png" width="20">
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="tabPrice">
+                                    <div class="price">
+                                        <%= items[0].min_price %>
+                                    </div>
+                                    <img src="../img/PlatinumLarge.png" width="20">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="graph">
+                <canvas id="graph"></canvas>
+            </div>
+
+        </section>
+
+        <script>
+
+            let ctx = document.getElementById('graph').getContext('2d');
+
+            const data = {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+                datasets: [
+                    {
+                    label: 'Evolution du prix',
+                    data: [65, 59, 80, 81],
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                    },
+                    {
+                    label: '% Rendement',
+                    data: [75, 80, 66, 56],
+                    fill: false,
+                    borderColor: 'rgb(85, 186, 45)',
+                    tension: 0.1
+                    }
+                ]
+            };
+            const opt =  {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            }
+            
+            let graph = new Chart(ctx, opt);
+
+        </script>
+
+        <script>
+            window.onload = function() {
+                particlesJS.load('particles-js', 'particlesjs-config.json');
+            };
+        </script>
+        <script src="../js/particles.js"></script>
+        <script src="../js/searchbar.js"></script>
+
+        <script>
+            const link = "https://warframe.market/static/assets/" + '<%= data.icon %>'
+            const div = document.getElementById("div");
+
+            let img = document.createElement('img');
+            let main = document.createElement('a');
+
+            img.setAttribute('src', link);
+            main.appendChild(img)
+            main.setAttribute("href", '/<%= data.url_name %>');
+            
+            div.appendChild(main);
+            
+            const test = '<%= items[0].display_name %>';
+
+            let lastIndex = test.lastIndexOf(" ");
+            name = test.substring(0, lastIndex);
+
+            const wiki = document.getElementById('title');
+            const a = document.createElement('a');
+            a.setAttribute("href", '<%= data.en.wiki_link %>');
+            a.innerHTML = name;
+
+            wiki.appendChild(a);
+        </script>
+
+    </body>
+</html>
