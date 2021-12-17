@@ -1,4 +1,3 @@
-
 # Warfame Tool
 
 A web app used to check prices of in-game items.
@@ -28,4 +27,9 @@ To deploy this project run
 - Live previews
 - Items details
 - Advanced stats & graphs features
+
+
+## License
+
+[GNU GPLv3](https://choosealicense.com/licenses/lgpl-3.0/)
 
