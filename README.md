@@ -17,7 +17,7 @@ Install WarframeTool with npm
 To deploy this project run
 
 ```bash
-  npm run
+  npm start server
 ```
 
 
